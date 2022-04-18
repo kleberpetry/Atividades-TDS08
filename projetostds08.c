@@ -74,7 +74,39 @@ todosProjetos(){
 	}
 	system("pause");
 }
-//porStatus(){}
+porStatus(int status){
+	system("cls");
+	int x,achou=0;
+	for(x=0;x<sequencia;x++){
+		if(projetos[x].status==status){
+			printf("\nCódigo: %d",projetos[x].codido);
+			printf("\nTitulo: %s",projetos[x].titulo);
+			printf("\nDescrição: %s",projetos[x].descricao);
+			printf("\nAno: %d",projetos[x].ano);
+			switch(projetos[x].status){
+				case 1:
+					printf("\nStatus: A fazer");
+				break;
+				case 2:
+					printf("\nStatus: Fazendo");
+				break;
+				case 3:
+					printf("\nStatus: Concluído");
+				break;
+				default:
+					printf("\nSem status definido");
+			}
+			printf("\nResponsável: %s\n",projetos[x].resposavel);
+			achou=1;
+		}else{
+			achou=0;
+		}	
+	}
+	if(achou==0){
+		printf("\nNenhum projeto encontrado\n");
+	}
+	systema("pause");
+}
 
 main(){
 	setlocale(LC_ALL, "Portuguese");
@@ -93,13 +125,13 @@ main(){
 				todosProjetos();
 			break;
 			case 3:
-				//porStatus();
+				porStatus(a);
 			break;
 			case 4:
-				//porStatus();
+				porStatus(f);
 			break;
 			case 5:
-				//porStatus();
+				porStatus(c);
 			break;
 			case 6:
 				//a pensar;
