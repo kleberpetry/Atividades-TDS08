@@ -46,9 +46,32 @@ cadastrarProjeto(){
 	
 }
 todosProjetos(){
-	
-
-
+	system("cls");
+	int x;
+	if(projetos[0].codido>0){
+		for(x=0;x<sequencia;x++){
+			printf("\nCódigo: %d",projetos[x].codido);
+			printf("\nTitulo: %s",projetos[x].titulo);
+			printf("\nDescrição: %s",projetos[x].descricao);
+			printf("\nAno: %d",projetos[x].ano);
+			switch(projetos[x].status){
+				case 1:
+					printf("\nStatus: A fazer");
+				break;
+				case 2:
+					printf("\nStatus: Fazendo");
+				break;
+				case 3:
+					printf("\nStatus: Concluído");
+				break;
+				default:
+					printf("\nSem status definido");
+			}
+			printf("\nResponsável: %s",projetos[x].resposavel);
+		}
+	}else{
+		printf("\nProjeto não cadestrado");
+	}
 }
 //porStatus(){}
 
