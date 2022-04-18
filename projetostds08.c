@@ -72,6 +72,7 @@ todosProjetos(){
 	}else{
 		printf("\nProjeto não cadestrado");
 	}
+	system("pause");
 }
 //porStatus(){}
 
