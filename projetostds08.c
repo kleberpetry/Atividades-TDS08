@@ -5,7 +5,7 @@
 struct projeto{
 	int codido;
 	char titulo[50];
-	char descricao[50];
+	char descricao[100];
 	int ano;
 	int status;
 	char resposavel[50];
@@ -67,10 +67,10 @@ todosProjetos(){
 				default:
 					printf("\nSem status definido");
 			}
-			printf("\nResponsável: %s",projetos[x].resposavel);
+			printf("\nResponsável: %s\n",projetos[x].resposavel);
 		}
 	}else{
-		printf("\nProjeto não cadestrado");
+		printf("\nNenhum projeto cadastrado\n");
 	}
 	system("pause");
 }
@@ -90,7 +90,7 @@ main(){
 				cadastrarProjeto();
 			break;
 			case 2:
-				//todosProjetos();
+				todosProjetos();
 			break;
 			case 3:
 				//porStatus();
