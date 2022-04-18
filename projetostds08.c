@@ -105,15 +105,48 @@ porStatus(int status){
 	if(achou==0){
 		printf("\nNenhum projeto encontrado\n");
 	}
-	systema("pause");
+	system("pause");
 }
-
+buscaCodigo(int codigo){
+	system("cls");
+	int x,achou=0;
+	for(x=0;x<sequencia;x++){
+		if(projetos[x].codido==codigo){
+			printf("\nCódigo: %d",projetos[x].codido);
+			printf("\nTitulo: %s",projetos[x].titulo);
+			printf("\nDescrição: %s",projetos[x].descricao);
+			printf("\nAno: %d",projetos[x].ano);
+			switch(projetos[x].status){
+				case 1:
+					printf("\nStatus: A fazer");
+				break;
+				case 2:
+					printf("\nStatus: Fazendo");
+				break;
+				case 3:
+					printf("\nStatus: Concluído");
+				break;
+				default:
+					printf("\nSem status definido");
+			}
+			printf("\nResponsável: %s\n",projetos[x].resposavel);
+			achou=1;
+			break;
+		}else{
+			achou=0;
+		}
+	}
+	if(achou!=1){
+		printf("\nProjeto não encontrado\n");
+	}
+	system("pause");
+}
 main(){
 	setlocale(LC_ALL, "Portuguese");
-	int op;
+	int op,codigo;
 	do{
 		system("cls");
-		printf("\nDigite \n1 para cadastrar\n2 para imprimir todos os projetos\n3 para imprimir todos os projetos com status A FAZER\n4 para imprimir todos os projetos com status FAZENDO\n5 para imrprimir todos os projetos com status CONCLUÍDO\n6 listagem a pensar");
+		printf("\nDigite \n1 para cadastrar\n2 para imprimir todos os projetos\n3 para imprimir todos os projetos com status A FAZER\n4 para imprimir todos os projetos com status FAZENDO\n5 para imrprimir todos os projetos com status CONCLUÍDO\n6 busca por código");
 		printf("\n_______________________________________________");
 		printf("\nDigite a opção desejada: ");
 		scanf("%d",&op);
@@ -134,7 +167,10 @@ main(){
 				porStatus(c);
 			break;
 			case 6:
-				//a pensar;
+				system("cls");
+				printf("\nDigite o código a ser buscado: ");
+				scanf("%d",&codigo);
+				buscaCodigo(codigo);
 			break;
 			default:
 				printf("\nOpção inválida");
