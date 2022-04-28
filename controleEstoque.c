@@ -71,6 +71,35 @@ listaTodos(){
 	}
 	system("pause");
 }
+ajusteCadastro(){
+	int codigo,x,achou;
+	double valor;
+	char nome[50];
+	system("cls");
+	printf("\nDigite o código do produto: ");
+	scanf("%d",&codigo);
+	for(x=0;x<sequencia;x++){
+		if(produtos[x].codigo==codigo){
+			printf("\nNome: %s",produtos[x].nome);
+			printf("\nValor: %0.2lf",produtos[x].valor);
+			printf("\nDigite o novo nome: ");
+			fflush(stdin);
+			gets(produtos[x].nome);
+			printf("\nDigite o novo valor: ");
+			scanf("%lf",&produtos[x].valor);
+			printf("\nCadastro atualizado com sucesso\n");
+			achou=1;
+			break;
+		}else{
+			achou=0;
+		}
+	}
+	if(achou==0){
+		printf("\nProduto não encontrado\n");
+	}
+	system("pause");
+	
+}
 
 
 main(){
@@ -81,7 +110,7 @@ main(){
 		printf("\nDigite a opção desejada: ");
 		printf("\n1 - cadastro do produto.");
 		printf("\n2 - entrada de estoque.");
-		printf("\n3 - ajuste de produto.");
+		printf("\n3 - ajuste do cadastro.");
 		printf("\n4 - lista todos os cadastros");
 		printf("\n5 - Venda");
 		printf("\nOpção: ");
@@ -94,7 +123,7 @@ main(){
 				entradaEstoque();
 			break;
 			case 3:
-				
+				ajusteCadastro();
 			break;
 			case 4:
 				listaTodos();
@@ -104,11 +133,6 @@ main(){
 				system("pause");
 		}
 	}while(opcao!=0);
-	
-	
-	
-	
-	
 	
 	return 0;
 }
