@@ -100,7 +100,40 @@ ajusteCadastro(){
 	system("pause");
 	
 }
-
+venda(){
+	int codigo, x,continuar,qtde,achou=0;
+	double subtotal=0,total=0;
+	do{
+		subtotal=0;
+		system("cls");
+		printf("\nDigite o código do produto: ");
+		scanf("%d",&codigo);
+		for(x=0;x<sequencia;x++){
+			if(produtos[x].codigo==codigo){
+				printf("\nProduto: %s",produtos[x].nome);
+				printf("\nDigite a quantidade do produto: ");
+				scanf("%d",&qtde);
+				subtotal=qtde*produtos[x].valor;
+				printf("\nSubtotal da venda: %0.2lf",subtotal);
+				printf("\nDeseja lançar mais um produto? ");
+				printf("\nDigite 1 para sim | 2 para não :");
+				scanf("%d",&continuar);
+				achou=1;
+				break;
+			}else{
+				achou=0;
+			}
+		}
+		if(achou==0){
+			printf("\nproduto não encontrado");
+		}
+		total+=subtotal;
+	}while(continuar!=2);
+	printf("\nO valor total da venda e: %0.2lf",total);
+	
+	
+	system("pause");
+}
 
 main(){
 	setlocale(LC_ALL, "Portuguese");
@@ -127,6 +160,9 @@ main(){
 			break;
 			case 4:
 				listaTodos();
+			break;
+			case 5:
+				venda();
 			break;
 			default:
 				printf("\nOpção inválida!\n");
