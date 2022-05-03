@@ -8,6 +8,7 @@ struct produto{
 	int estoque;
 };
 struct produto produtos[200];
+struct produto abc;
 int sequencia=0,nvenda=0;
 double vendas[200];
 
@@ -72,7 +73,6 @@ entradaEstoque(){
 	}
 	system("pause");
 }
-
 listaTodos(){
 	int x;
 	system("cls");
@@ -199,10 +199,7 @@ listaVendas(){
 	}
 	system("pause");
 }
-main(){
-	setlocale(LC_ALL, "Portuguese");
-	int opcao;
-	do{
+menu(){
 		system("cls");
 		printf("\nDigite a opção desejada: ");
 		printf("\n1 - cadastro do produto.");
@@ -212,6 +209,12 @@ main(){
 		printf("\n5 - Venda");
 		printf("\n6 - Relatório de Vendas");
 		printf("\nOpção: ");
+}
+main(){
+	setlocale(LC_ALL, "Portuguese");
+	int opcao;
+	do{
+		menu();
 		scanf("%d",&opcao);
 		switch(opcao){
 			case 1:
